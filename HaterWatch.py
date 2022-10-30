@@ -39,16 +39,16 @@ SILVER II 81 LP
 57 W : 61 L
 '''
 def beautify(summoner_ranked_info: list):
-	summoner_ranks = ""
+	summoner_rank = ""
 	for rank in summoner_ranked_info:
 		queue_rank = "{}\n{}\n{} {} - {} LP\n{} W : {} L".format(
 			rank['summonerName'],
 			rank['queueType'],
 			rank['tier'], rank['rank'], rank['leaguePoints'],
 			rank['wins'], rank['losses'])
-		summoner_ranks += queue_rank
+		summoner_rank += queue_rank
 
-	return summoner_ranks
+	return summoner_rank
 
 
 if __name__ == '__main__':
@@ -56,3 +56,4 @@ if __name__ == '__main__':
 	response = api.ranked_info(['beanmaster300000', 'gnatt'])
 	for elem in response:
 		print(beautify(elem.json()))
+		print()
